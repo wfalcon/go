@@ -30,7 +30,12 @@ func main() {
 		input = strings.TrimSpace(input)
 		guess, err := strconv.Atoi(input)
 		if err != nil {
-			fmt.Println("Нужно было ввести число. Попробуйте снова.")
+			fmt.Println("Нужно было ввести целое число. Попробуйте снова.")
+			guesses -= 1
+			continue
+		}
+		if guess < 1 || guess > 100 {
+			fmt.Println("Мы же договорились, число от 1 до 100. Попробуйте снова.")
 			guesses -= 1
 			continue
 		}
@@ -41,13 +46,13 @@ func main() {
 			fmt.Println("Ваше число больше загаданного")
 		} else if guess == target {
 			success = true
-			fmt.Println("Вы угадали! Загаданное число:", target)
+			fmt.Println("Вы угадали! Задуманное число:", target)
 			break
 		}
 
 	}
 
 	if !success {
-		fmt.Println("Вы проиграли :( , загаданное число:", target)
+		fmt.Println("Вы проиграли :( , задуманное число:", target)
 	}
 }
