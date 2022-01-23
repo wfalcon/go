@@ -53,6 +53,6 @@ func main() {
 	}
 
 	if !success {
-		fmt.Println("Вы проиграли :( , задуманное число:", target)
+		fmt.Println("Вы проиграли :( , загаданное число:", target)
 	}
 }
